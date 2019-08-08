@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Exemple de HTML5">
+	<meta name="keywords" content="HTML5, CSS3, Javascript">
+	<title>Rellotge digital</title>
+	<link rel="stylesheet" href="rellotge.css">	
+</head>
+<body style="padding:3%;background:whitesmoke;">
+	
+	<script type="text/javascript">
+	actualitzar();
+	function actualitzar() {
+		document.write("<h2 style='text-align:center;color:#111111;font-size:20pt'>");
+		ceroM = 0;
+		ceroS = 0;
+		ceroSm = 0;
+		ceroSmm = 0;
+		now = new Date();
+		hores = now.getHours();
+		minuts = now.getMinutes();
+		if (minuts>9) ceroM="";
+		segons = now.getSeconds();
+		if (segons>9) ceroS="";
+		msegons = now.getMilliseconds();
+		if (msegons>99) ceroSmm="";
+		if (msegons>9) ceroSm="";
+		document.write("<h1 style='text-align:center;color:#111188;font-size:50pt;'>");
+		document.write("Hora. "+hores+":"+ceroM+minuts+":"+ceroS+segons+","+ceroSmm+ceroSm+msegons);
+		document.write("</h1>");
+		now = new Date();
+		dia = now.getDay();
+		if (dia==1) dia="dilluns";
+		if (dia==2) dia="dimarts";
+		if (dia==3) dia="dimecres";
+		if (dia==4) dia="dijous";
+		if (dia==5) dia="divendres";
+		if (dia==6) dia="dissabte";
+		if (dia==0) dia="diumenge";
+		diames = now.getDate();
+		mes = now.getMonth();
+		if (mes==0) mes="gener";
+		if (mes==1) mes="febrer";
+		if (mes==2) mes="març";
+		if (mes==3) mes="abril";
+		if (mes==4) mes="maig";
+		if (mes==5) mes="juny";
+		if (mes==6) mes="juliol";
+		if (mes==7) mes="agost";
+		if (mes==8) mes="setembre";
+		if (mes==9) mes="octubre";
+		if (mes==10) mes="novembre";
+		if (mes==11) mes="desembre";		
+		any = now.getFullYear();		
+		document.write("<h1 style='text-align:center;color:#881111;font-size:40pt;margin-bottom:270pt;'>");
+		document.write(dia+", "+diames+" de "+mes+" del "+any);
+		document.write("</h1>");
+		localtime = now.toString();
+		utctime = now.toGMTString();
+		document.write("<p><strong>Hora Barcelona:</strong>"+localtime+"</p>");
+		document.write("<p><strong>Hora Greenwich:</strong>"+utctime+"</p>");
+	}
+	</script>
+	<button onclick="actualitzar();" style="font-size:16pt;color:#111111;margin-left:50pt;">ACTUALITZA'T</button>
+	
+</body>
+</html>
